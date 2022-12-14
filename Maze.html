@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Project</title>
+  <link rel="stylesheet" href="./Maze.css">
+</head>
+
+<body>
+  <div class="topnav">
+    <a  href="./index.html">Home</a>
+    <a class="active" href="#">Enter the Project</a>
+    
+
+  </div>
+  <h1 class="func-title">Rat-In-Maze - A Backtracking Problem :</h1>
+  <br>
+  <div>
+    <h3 class="func-title">What is Backtracking ?</h3>
+    <p>
+      <b>Backtracking</b> can be defined as a general
+      algorithmic technique that considers searching
+      every possible combination 
+      in order to solve a computational problem.
+      <br>
+      There are three types of problems in backtracking - 
+    </p>
+    <ol type="1">
+     <li> Decision Problem - In this, we search for a feasible solution.</li>
+     <li> Optimization Problem - In this, we search for the best solution.</li>
+     <li> Enumeration Problem - In this, we find all feasible solutions.</li>
+    </ol>
+    <br>
+    <p class="func-title">Backtracking Pseudocode :</p>
+    <pre>
+      <code>
+        Backtrack(x)
+           if x is not a solution
+             return false
+           if x is a new solution
+             add to list of solutions
+           backtrack(expand x)
+      </code>
+    </pre>
+    <br>
+    <h3>It's applications : </h3>
+    <ol type="1">
+     <li> To find all Hamiltonian Paths present in a graph.</li>
+     <li> To solve the N Queen problem.</li>
+     <li> Maze solving problem.</li>
+     <li> The Knight's tour problem.</li>
+    </ol>
+  </div>
+  <br>
+  <div>
+    <h2 class="func-title">Rat-in-maze :</h2>
+    <p>
+      The Use of backtracking algorithm is an effort to build
+       a solution to a computational problem incrementally.
+    </p>
+    <p>
+      Our intention is show the application of backtracking to a problem like this. 
+      We solved the problem in 2 languages - javascript and java.
+      The User has to implement the <b>Java solution</b> of the problem in the compiler.
+      <br>
+      For any reference the soltuion is attached to the below (same for javascript).
+      <br>
+      Using the <b> Html,Css and Javascript </b> we have solved a given matrix and represented the solution visually.
+  
+    </p>
+    <br>
+    <h3 class="func-title">The Problem Statement : </h3>
+  <p>
+    Rat in the maze is a problem using backtracking . Here a n*n binary matrix
+    where its upper left block at maze[0][0] is starting point and the
+    destination is the rightmost block at maze[n-1][n-1].The rat can move
+    in 2 directions : forward and down.
+    In maze matrix ,0 means the block is dead and 1 means the block can be used in path
+    from source to destination.
+  </p>
+  <br>
+  <h3 class="func-title">Approach:</h3>
+  <p>
+
+    From a recursive function, which will follow a path and
+    check if the path reaches the destination or not .If the path does nit
+    reach the destination then backtrack and try others.
+
+  </p>
+  <br>
+  <h3 class="func-title">Algorithm:</h3>
+  <p>
+
+  <ol>
+    <li>Create the solution matrix ,intially filled with 0's.</li>
+    <li>
+      Create a recursive function ,whcih takes initial matrix ,output
+      matrix and psoition of rat (i,j).
+    </li>
+    <li>If the position is out of the matrix or position is not valid then return .</li>
+    <li>
+      Mark the position output[i][j] as 1 and check if current position is
+      destination or not .If destination is reached print the output matrix and
+      return.
+    </li>
+    <li>Recursively call for position (i+1,j) and (i,j+1).</li>
+    <li>Unmark position (i,j) and output[i][j] = 0</li>
+  </ol>
+  </p>
+</div>
+  <br>
+  <h3 class="func-title">Complexity Analysis:</h3>
+  <ol>
+    <li>
+      Time Complexity: O(2^(n^2)).
+      The recursion can run upper-bound 2^(n^2) times.
+    </li>
+    <li>
+      Space Complexity: O(n^2)
+      Output matrix is required so an extra spcae of size n*n is needed.
+    </li>
+  </ol>
+  <br>
+  <div>
+    <h3>Here we use Javascript and Java(using plugin) to implement rat in the maze :</h3>
+    
+  </div>
+  <br>
+  <div>
+
+    <h4 class="func-title">Implement Rat-in-Maze using <b> JAVA </b>Compiler:</h4>
+    <p>The code for the Java implementation is <a href="./RatinMaze.java" target="_blank">here</a></p>
+    <br>
+    <div data-pym-src='https://www.jdoodle.com/plugin' data-language="java" data-version-index="4"
+      data-libs="mavenlib1, mavenlib2">
+      Optional default code goes here
+    </div>
+    <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
+  </div>
+  <br>
+  <div>
+    <h4 class="func-title"><b> Javascript </b>Implementation : </h4>
+    <p>We Implmenented the solution for the problem using <b>Javascript</b>.</p>
+    <p>The Javascript implementation of the Rat in maze problem is described as follows.</p>
+    <p>The functions used for the <b>JAVA </b>example are the same in implementation.</p>
+    <p>Code for Javascript implementation is <a href="./MazeJS.js" target="_blank">here</a></p>
+    <p>The Javascript implementation of the Rat in maze problem is described as follows.</p>
+    <h5>The code is separated into 4 functions : </h5>
+  </div>
+  <br>
+  <div>
+    <ol>
+      <li>
+        <div>
+          <h4 class="func-title"> printSolution - Prints solution :</h4>
+          <p>This function is to print the final matrix ,it takes in the solution (i,j) of the matrix.</p>
+          <pre>
+           <code>
+             for (let i = 0; i < N; i++) {
+                  document.write(`[`)
+              for (let j = 0; j < N; j++)
+                  document.write(` ${sol[i][j]}, `);
+            
+              document.write('],')
+              document.write("< 'br' >");
+              }
+           </code>
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4 class="func-title">safetyCheck - Checks the validity of the solution cell :</h4>
+          <p>The function takes in input matrix 'maze' and 'x' , 'y'.</p>
+          <pre>
+          <code>
+            // if (x, y outside maze) return false
+             return (x >= 0 && x < N && y >= 0
+                  && y < N && maze[x][y] == 1);
+          </code>
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4 class="func-title">utlitityFunction - A recursive utility function to solve Maze problem :</h4>
+          <p> It returns false if no
+            path is possible, otherwise return true and
+            prints the path in the form of 1s.
+          </p>
+          <pre>
+          <code>
+            // if (x, y is goal) return true
+            if (x == N - 1 && y == N - 1
+              && maze[x][y] == 1) {
+              sol[x][y] = 1;
+              return true;
+            }
+        
+          </code>
+          </pre>
+          <p>Check whether the cell is part or not using safetyCheck() function.</p>
+          <pre>
+         <code>
+          // Check if maze[x][y] is valid
+          if (safetyCheck(maze, x, y) == true) {
+                // Check if the current block is already part of solution path.  
+                if (sol[x][y] == 1)
+                    return false;
+              
+              // mark x, y as part of solution path
+              sol[x][y] = 1;
+         </code>
+         </pre>
+          <p>
+            Then the function is called recursively each time checking the in different directions.
+          </p>
+          <pre>
+         <code>
+         /* Move forward in x direction */
+              if (utlitityFunction(maze, x + 1, y, sol))
+                  return true;
+    
+              /* If moving in x direction doesn't give
+              solution then Move down in y direction */
+              if (utlitityFunction(maze, x, y + 1, sol))
+                  return true;
+              
+              /* If moving in y direction doesn't give
+              solution then Move backwards in x direction */
+              if (utlitityFunction(maze, x - 1, y, sol))
+                  return true;
+    
+              /* If moving backwards in x direction doesn't give
+              solution then Move upwards in y direction */
+              if (utlitityFunction(maze, x, y - 1, sol))
+                  return true;
+         </code>
+         </pre>
+          <p>Finally if no solution is possible then we print "No solution possible".</p>
+          <pre>
+         <code>
+         /* If none of the above movements works then
+              BACKTRACK: unmark x, y as part of solution
+              path */
+              sol[x][y] = 0;
+              return false;
+         </code>
+         </pre>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4 class="func-title">finalSolution - This is the function that solves the Maze :</h4>
+          <p>
+            The input to the function is the 'maze'.
+            This function utilizes utlitityFunction() function to solve the matrix.
+            It first creates a new array 'N' and sets it to 0.
+            The utlitityFunction() is looked to check the validity of the function.
+            The printSolution() then prints the solution matrix.
+          </p>
+          <pre>
+          <code>
+            let sol = new Array(N);
+             for(let i=0;i < N;i++)
+             {
+              sol[i]=new Array(N);
+               for(let j=0;j < N;j++)
+               {
+                 sol[i][j]=0;
+               }
+             }
+    
+             if (utlitityFunction(maze, 0, 0, sol) == false) {
+                document.write("Solution doesn't exist");
+                return false;
+             }
+    
+              printSolution(sol);
+              return true;
+             } 
+          </code>
+          </pre>
+        </div>
+      </li>
+    </ol>
+    <br>
+    <h3 class="func-title">Given Matrix: </h3>
+    
+    <ul>
+      <li class="sol">[ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ],</li>
+      <li class="sol">[ 1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ],</li>
+      <li class="sol">[ 1 , 1 , 1 , 1 , 0 , 0 , 0 , 0 , 0 , 1 ],</li>
+      <li class="sol">[ 0 , 0 , 0 , 1 , 1 , 1 , 0 , 1 , 1 , 1 ],</li>
+      <li class="sol">[ 0 , 0 , 0 , 0 , 0 , 1 , 0 , 1 , 1 , 1 ],</li>
+      <li class="sol">[ 1 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 1 ],</li>
+      <li class="sol">[ 1 , 1 , 1 , 0 , 1 , 1 , 1 , 0 , 0 , 0 ],</li>
+      <li class="sol">[ 1 , 0 , 1 , 1 , 0 , 1 , 1 , 1 , 0 , 1 ],</li>
+      <li class="sol">[ 1 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 1 , 1 ],</li>
+      <li class="sol">[ 1 , 1 , 1 , 0 , 0 , 0 , 0 , 0 , 1 , 1 ]</li>
+    </ul>
+    <br>
+    <div>
+      <h3 class="func-title">Visual representation of the given Solution:</h3>
+
+      <div class="output">
+      <input type='button' onclick='main()' value='Run! Rat, Run!!!' />
+      </div>
+
+      <div id='root'></div>
+      </div>
+<br>
+    <h3 class="func-title">Solution Matrix: </h3>
+  </div>
+  <script>
+
+
+   // Size of the maze
+    let N;
+
+    function printSolution(sol) {
+      for (let i = 0; i < N; i++) {
+        document.write('[');
+        for (let j = 0; j < N; j++)
+          document.write(
+            `  ${sol[i][j]},  `);
+
+        document.write('],');
+        document.write("<br>");
+      }
+    }
+ 
+    function safetyCheck(maze, x, y) {
+      // if (x, y outside maze) return false
+      return (x >= 0 && x < N && y >= 0
+        && y < N && maze[x][y] == 1);
+    }
+
+
+    function finalSolution(maze) {
+      let sol = new Array(N);
+      for (let i = 0; i < N; i++) {
+        sol[i] = new Array(N);
+        for (let j = 0; j < N; j++) {
+          sol[i][j] = 0;
+        }
+      }
+
+      if (utilityFunction(maze, 0, 0, sol) == false) {
+        document.write("Solution doesn't exist");
+        return false;
+      }
+
+      printSolution(sol);
+      return true;
+    }
+  
+    function utilityFunction(maze, x, y, sol) {
+      // if (x, y is goal) return true
+      if (x == N - 1 && y == N - 1
+        && maze[x][y] == 1) {
+        sol[x][y] = 1;
+        return true;
+      }
+
+
+      if (safetyCheck(maze, x, y) == true) {
+
+        if (sol[x][y] == 1)
+          return false;
+
+        sol[x][y] = 1;
+
+        
+        if (utilityFunction(maze, x + 1, y, sol))
+          return true;
+
+    
+        if (utilityFunction(maze, x, y + 1, sol))
+          return true;
+
+      
+        if (utilityFunction(maze, x - 1, y, sol))
+          return true;
+
+         
+        if (utilityFunction(maze, x, y - 1, sol))
+          return true;
+
+
+        path 
+        sol[x][y] = 0;
+        return false;
+      }
+
+      return false;
+    }
+
+    let maze = [[ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ],
+      [ 1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ],
+      [ 1 , 1 , 1 , 1 , 0 , 0 , 0 , 0 , 0 , 1 ],
+      [ 0 , 0 , 0 , 1 , 1 , 1 , 0 , 1 , 1 , 1 ],
+      [ 0 , 0 , 0 , 0 , 0 , 1 , 0 , 1 , 1 , 1 ],
+      [ 1 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 1 ],
+      [ 1 , 1 , 1 , 0 , 1 , 1 , 1 , 0 ,  0 , 0 ],
+      [ 1 , 0 , 1 , 1 , 0 , 1 , 1 , 1 , 0 , 1 ],
+      [ 1 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 1 , 1 ],
+      [ 1 , 1 , 1 , 0 , 0 , 0 , 0 , 0 , 1 , 1 ]];
+    N = maze.length;
+    finalSolution(maze);
+
+</script>
+<script src="./MazeAnimate.js"></script>
+</body>
+
+</html>
